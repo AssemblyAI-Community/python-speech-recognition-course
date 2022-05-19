@@ -1,0 +1,106 @@
+{
+    "chapters": [
+        {
+            "summary": "So You Want to be a Database Data Scientist is a podcast where we interview data scientists and other data professionals. This show is part of the Website. Visit the website to get access to articles and resources on becoming a data scientist. Leave a review on Apple podcasts.",
+            "headline": "So You Want to be a Database Data Scientist is a podcast where we interview data scientists and other data professionals.",
+            "gist": "So you want to be a data scientist.",
+            "start": 130,
+            "end": 39690
+        },
+        {
+            "summary": "Nas Levant is a data scientist at Amazon Web Services. She helps enterprise customers achieve their business goals using machine learning and AI. Nas explains to the podcast what data science consultancy is like and how it differs from consulting. Nas also explains that it's not necessary for the clients to understand data science as well.",
+            "headline": "She helps enterprise customers achieve their business goals using machine learning and AI.",
+            "gist": "Sponsored by amazon web services.",
+            "start": 41690,
+            "end": 167190
+        },
+        {
+            "summary": "During his Master's degree in Belgium, he applied to Amazon Web Services for a big data consultancy position. He did the technical phone interview and was offered the position after a face-to-face interview in the Netherlands. This is his first full-time job.",
+            "headline": "During his Master's degree in Belgium, he applied to Amazon web services for a big data consultancy position.",
+            "gist": "How rebecca ended up in belgium.",
+            "start": 167240,
+            "end": 266718
+        },
+        {
+            "summary": "Ku Lovin got a Master's Degree in Artificial Intelligence with a specialization on Big data. Ku Lovin did an internship at Vodafone during his bachelor's in Computer Science. He wants to work as a data scientist for the next 5-10 years. He would like to build cutting edge technology in the AI domain with talented people.",
+            "headline": "Ku Lovin did an internship at Vodafone during his bachelor's in Computer science.",
+            "gist": "What did she study for her masters.",
+            "start": 266744,
+            "end": 516500
+        },
+        {
+            "summary": "Last year he worked on a Formula One project. He had no idea about Formula One races before. His Department mainly works for the Pipeline Strategy and Battle for Cast projects in the website if you want to upgrade your career and become a data scientist, you need some experience.",
+            "headline": "His Department mainly works for the Pipeline Strategy and Battle for Cast projects.",
+            "gist": "Matthew's research projects.",
+            "start": 518610,
+            "end": 805606
+        },
+        {
+            "summary": "Harvey is resting in Amsterdam. At the moment he was in Germany. Also for another client. Harvey's work starts with scoping the project for some projects. And then he joins the project based on the problem. The pre processing takes different amount of time. Harvey would go to protection with the project. If it was successful.",
+            "headline": "Harvey's work starts with scoping the project for some projects, and then he joins the project based on the problem.",
+            "gist": "Do you travel for your work.",
+            "start": 805668,
+            "end": 1072230
+        },
+        {
+            "summary": "On a weekday. Basel spends a lot of time on data gathering, data cleaning, modeling, and talking to clients. He uses Sage Maker Grand Truth for collecting data. Basel works with Agile methodology and keeps his clients in the loop. He has three stacks in Aws:, the high level service for developers, the middle layer for data scientists and the middle one for AI services. Sage Maker experiments, Jupyter Notebooks, Class Formation Templates, and Class Development Kit templates are some of the tools that he uses for his consulting work. His favorite language is Python, but he doesn't prefer to focus on one language. He thinks that programming language is just a tool, and it's important to understand the logic behind it.",
+            "headline": "He has three stacks in Aws:, the High Level Service for developers, the Middle Layer for data scientists and the.",
+            "gist": "What is a typical weekday for kanban.",
+            "start": 1072610,
+            "end": 1620550
+        },
+        {
+            "summary": "Ci CD Pipelines are continuous integration, continuous development pipelines for data science projects. They usually have four different stacks:, preprocessing, Training, Inference and Build. When a data scientist pushes codes to their Git accounts, it triggers the whole pipeline and there are new updates already in place.",
+            "headline": "Ci CD Pipelines are continuous integration, continuous development pipelines for data science projects.",
+            "gist": "Ci cd pipelines.",
+            "start": 1620720,
+            "end": 1759920
+        },
+        {
+            "summary": "The soft skills that data scientists need are communication, understanding their customers and not having bias. Presentation skills are also important as they represent their company. For example, for one of his KPIs, this is not an official KPI, but it's a re shared knowledge that he gained.",
+            "headline": "The soft skills that data scientists need are communication. Understanding their customers and not having bias.",
+            "gist": "Soft skills for data scientists.",
+            "start": 1760250,
+            "end": 1900420
+        },
+        {
+            "summary": "The most exciting thing for me is changing projects and learning about different sectors. I try to keep up with all the new services that we are coming up with at AWS and I like the fact that AWS is innovating so quickly. I like to learn about all these different sectors and AWS is constantly innovating.",
+            "headline": "The most exciting thing for me is changing projects and learning about different sectors.",
+            "gist": "What's the most exciting part of your job.",
+            "start": 1901050,
+            "end": 1982858
+        },
+        {
+            "summary": "The most boring part of your job is earning the trust of new customers. The most difficult part is earning trust of the new customers because they don't know you and you need to explain to them what it is that you have to deliver to earn their trust. In the beginning of the project, waiting for data is the most boring thing for her.",
+            "headline": "The most boring part of your job is earning the trust of new customers.",
+            "gist": "The most boring part of his job.",
+            "start": 1983004,
+            "end": 2121520
+        },
+        {
+            "summary": "According to Amazon's diversity policy, the company is an equal opportunity employer for minority people based on human disability, gender identity and age. Amazon has its own diversity team that keeps them updated regularly around the work. Amazon is trying extra hard to apply these values into their work every day.",
+            "headline": "According to Amazon's Diversity Policy, the company is an equal opportunity employer for minority people based on human disability, gender identity and age.",
+            "gist": "Being a woman in tech.",
+            "start": 2122930,
+            "end": 2300560
+        },
+        {
+            "summary": "According to him, the most important thing for a data scientist is to have a portfolio with multiple projects. He has a course where you start from gathering data to cleaning it, exploring it, preparing it and even building models on top of it. He also recommends starting or getting a job and then growing from it.",
+            "headline": "According to him, the most important thing for a data scientist is to have a portfolio with multiple projects.",
+            "gist": "Advice for new data scientists.",
+            "start": 2301610,
+            "end": 2594920
+        },
+        {
+            "summary": "Thanks for listening to the episode. Don't forget to take the free Data Science Kickstarter course to learn what it takes to become a data scientist and see you next time on the show. Thanks for listening and listening to this episode and for taking the time to talk to him.",
+            "headline": "This episode of the show is about data science.",
+            "gist": "See you next time.",
+            "start": 2595490,
+            "end": 2618660
+        }
+    ],
+    "audio_url": "https://www.listennotes.com/e/p/8e1058a1499d49a3b923fcd9ce67f210/",
+    "thumbnail": "https://cdn-images-1.listennotes.com/podcasts/so-you-want-to-be/22-being-a-data-science-AqENdJnXfp4-H5SR-zdKt6P.300x300.jpg",
+    "podcast_title": "So you want to be a data scientist?",
+    "episode_title": "#22 - Being a data science consultant at Amazon with Naz Levent"
+}
