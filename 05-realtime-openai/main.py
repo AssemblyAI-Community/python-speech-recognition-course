@@ -1,4 +1,3 @@
-# pip install pyaudio requests websockets
 import pyaudio
 import websockets
 import asyncio

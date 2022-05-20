@@ -22,7 +22,7 @@ if __name__ == "__main__":
     negatives = []
     neutrals = []
     for result in data:
-        text = result ["text"]
+        text = result["text"]
         if result["sentiment"] == "POSITIVE":
             positives.append(text)
         elif result["sentiment"] == "NEGATIVE":
