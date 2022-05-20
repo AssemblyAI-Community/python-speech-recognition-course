@@ -17,7 +17,6 @@ headers_listennotes = {
 }
 
 
-
 def get_episode_audio_url(episode_id):
     url = listennotes_episode_endpoint + '/' + episode_id
     response = requests.request('GET', url, headers=headers_listennotes)
@@ -42,49 +41,56 @@ def transcribe(audio_url, auto_chapters):
     return transcript_response.json()['id']
 
 
-def poll(transcript_id, **kwargs):
+def poll(transcript_id):
     polling_endpoint = transcript_endpoint + '/' + transcript_id
     polling_response = requests.get(polling_endpoint, headers=headers_assemblyai)
-
-    if polling_response.json()['status'] == 'completed':
-        filename = transcript_id + '.txt'
-        with open(filename, 'w') as f:
-            f.write(polling_response.json()['text'])
-
-        filename = transcript_id + '_chapters.json'
-        with open(filename, 'w') as f:
-            chapters = polling_response.json()['chapters']
-
-            data = {'chapters': chapters}
-            for key, value in kwargs.items():
-                data[key] = value
-
-            json.dump(data, f, indent=4)
-
-        print('Transcript saved')
-        return True
-    return False
+    return polling_response.json()
+    
 
 
-def get_transcription_result_url(url, auto_chapters, audio_url, thumbnail, podcast_title,
-                  episode_title):
+def get_transcription_result_url(url, auto_chapters):
     transcribe_id = transcribe(url, auto_chapters)
     while True:
-        result = poll(transcribe_id, audio_url=audio_url, thumbnail=thumbnail, podcast_title=podcast_title,
-                  episode_title=episode_title)
-        if result:
-            break
-            
+        #result = poll(transcribe_id, audio_url=audio_url, thumbnail=thumbnail, podcast_title=podcast_title,
+        #          episode_title=episode_title)
+        data = poll(transcribe_id)
+        if data['status'] == 'completed':
+            return data, None
+        elif data['status'] == 'error':
+            return data, data['error']
+
         print("waiting for 60 seconds")
         time.sleep(60)
+            
+            
+            
 
 
 
-def pipeline(episode_id):
+
+def save_transcript(episode_id):
     audio_url, thumbnail, podcast_title, episode_title = get_episode_audio_url(episode_id)
-    get_transcription_result_url(audio_url, auto_chapters=True, audio_url=audio_url, thumbnail=thumbnail, podcast_title=podcast_title,
-                  episode_title=episode_title)
+    data, error = get_transcription_result_url(audio_url, auto_chapters=True)
+    if data:
+        filename = episode_id + '.txt'
+        with open(filename, 'w') as f:
+            f.write(data['text'])
 
+        filename = episode_id + '_chapters.json'
+        with open(filename, 'w') as f:
+            chapters = data['chapters']
 
-if __name__ == '__main__':
-   pipeline("20bf194224434ebbba8462ea8136cc3d")
+            data = {'chapters': chapters}
+            data['audio_url']=audio_url
+            data['thumbnail']=thumbnail
+            data['podcast_title']=podcast_title
+            data['episode_title']=episode_title
+            # for key, value in kwargs.items():
+            #     data[key] = value
+
+            json.dump(data, f, indent=4)
+            print('Transcript saved')
+            return True
+    elif error:
+        print("Error!!!", error)
+        return False

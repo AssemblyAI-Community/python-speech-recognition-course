@@ -46,11 +46,6 @@ def poll(transcript_id):
     return polling_response.json()
 
 
-def get_transcription_result_file(filename, sentiment_analysis):
-    audio_url = upload(filename)
-    return get_transcription_result_url(audio_url, sentiment_analysis)
-        
-
 def get_transcription_result_url(url, sentiment_analysis):
     transcribe_id = transcribe(url, sentiment_analysis)
     while True:

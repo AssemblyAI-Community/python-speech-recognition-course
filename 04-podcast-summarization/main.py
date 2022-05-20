@@ -1,27 +1,21 @@
 import streamlit as st
 import glob
 import json
-from api_04 import pipeline
+from api_04 import save_transcript
 from threading import Thread
 
 st.title("Podcast Summaries")
 
 json_files = glob.glob('*.json')
 
-# def get_result(episode_id):
-#     st.sidebar.write("Get auto chapters...")
-#     pipeline(episode_id)
-
-
 episode_id = st.sidebar.text_input("Episode ID")
-button = st.sidebar.button("Download Episode summary")#, on_click=get_result, args=(episode_id,))
-check = st.sidebar.button("Check if the new transcrption is ready!")
+button = st.sidebar.button("Download Episode summary", on_click=save_transcript, args=(episode_id,))
 
-if button and episode_id:
-    st.sidebar.write("Getting chapters...")
-    #pipeline(episode_id)
-    t = Thread(target=pipeline, args=(episode_id,))
-    t.start()
+# if button and episode_id:
+#     st.sidebar.write("Getting chapters...")
+#     #pipeline(episode_id)
+#     t = Thread(target=save_transcript, args=(episode_id,))
+#     t.start()
 
 
 def get_clean_summary(chapters):
@@ -31,10 +25,11 @@ def get_clean_summary(chapters):
         seconds = int((start_ms / 1000) % 60)
         minutes = int((start_ms / (1000 * 60)) % 60)
         hours = int((start_ms / (1000 * 60 * 60)) % 24)
+        txt += '###### ' + chapter['gist'] + ' - '
         if hours > 0:
-            txt += f'start: {hours:02d}:{minutes:02d}:{seconds:02d}'
+            txt += f'{hours:02d}:{minutes:02d}:{seconds:02d}'
         else:
-            txt += f'start: {minutes:02d}:{seconds:02d}'
+            txt += f'{minutes:02d}:{seconds:02d}'
         txt += '\n\n'
         txt += chapter['summary']
         txt += '\n\n'
@@ -54,4 +49,4 @@ for file in json_files:
     with st.expander(f"{podcast_title} - {episode_title}"):
         st.image(thumbnail, width=200)
         st.markdown(f'#### {episode_title}')
-        st.write(get_clean_summary(chapter))
+        st.markdown(get_clean_summary(chapter))
