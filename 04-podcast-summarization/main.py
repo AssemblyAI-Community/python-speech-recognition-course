@@ -2,7 +2,6 @@ import streamlit as st
 import glob
 import json
 from api_04 import save_transcript
-from threading import Thread
 
 st.title("Podcast Summaries")
 
@@ -11,42 +10,35 @@ json_files = glob.glob('*.json')
 episode_id = st.sidebar.text_input("Episode ID")
 button = st.sidebar.button("Download Episode summary", on_click=save_transcript, args=(episode_id,))
 
-# if button and episode_id:
-#     st.sidebar.write("Getting chapters...")
-#     #pipeline(episode_id)
-#     t = Thread(target=save_transcript, args=(episode_id,))
-#     t.start()
+
+def get_clean_time(start_ms):
+    seconds = int((start_ms / 1000) % 60)
+    minutes = int((start_ms / (1000 * 60)) % 60)
+    hours = int((start_ms / (1000 * 60 * 60)) % 24)
+    if hours > 0:
+        start_t = f'{hours:02d}:{minutes:02d}:{seconds:02d}'
+    else:
+        start_t = f'{minutes:02d}:{seconds:02d}'
+        
+    return start_t
 
 
-def get_clean_summary(chapters):
-    txt = ''
-    for chapter in chapters:
-        start_ms = chapter['start']
-        seconds = int((start_ms / 1000) % 60)
-        minutes = int((start_ms / (1000 * 60)) % 60)
-        hours = int((start_ms / (1000 * 60 * 60)) % 24)
-        txt += '###### ' + chapter['gist'] + ' - '
-        if hours > 0:
-            txt += f'{hours:02d}:{minutes:02d}:{seconds:02d}'
-        else:
-            txt += f'{minutes:02d}:{seconds:02d}'
-        txt += '\n\n'
-        txt += chapter['summary']
-        txt += '\n\n'
-    return txt
-
-
-for file in json_files:
-    with open(file, 'r') as f:
+if button:
+    filename = episode_id + '_chapters.json'
+    print(filename)
+    with open(filename, 'r') as f:
         data = json.load(f)
 
-    chapter = data['chapters']
+    chapters = data['chapters']
     episode_title = data['episode_title']
     thumbnail = data['thumbnail']
     podcast_title = data['podcast_title']
     audio = data['audio_url']
 
-    with st.expander(f"{podcast_title} - {episode_title}"):
-        st.image(thumbnail, width=200)
-        st.markdown(f'#### {episode_title}')
-        st.markdown(get_clean_summary(chapter))
+    st.header(f"{podcast_title} - {episode_title}")
+    st.image(thumbnail, width=200)
+    st.markdown(f'#### {episode_title}')
+
+    for chp in chapters:
+        with st.expander(chp['gist'] + ' - ' + get_clean_time(chp['start'])):
+            chp['summary']

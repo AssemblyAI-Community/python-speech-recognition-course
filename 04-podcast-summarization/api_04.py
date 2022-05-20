@@ -51,8 +51,6 @@ def poll(transcript_id):
 def get_transcription_result_url(url, auto_chapters):
     transcribe_id = transcribe(url, auto_chapters)
     while True:
-        #result = poll(transcribe_id, audio_url=audio_url, thumbnail=thumbnail, podcast_title=podcast_title,
-        #          episode_title=episode_title)
         data = poll(transcribe_id)
         if data['status'] == 'completed':
             return data, None
@@ -62,11 +60,6 @@ def get_transcription_result_url(url, auto_chapters):
         print("waiting for 60 seconds")
         time.sleep(60)
             
-            
-            
-
-
-
 
 def save_transcript(episode_id):
     audio_url, thumbnail, podcast_title, episode_title = get_episode_audio_url(episode_id)
