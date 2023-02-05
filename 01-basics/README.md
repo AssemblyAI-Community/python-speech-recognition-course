@@ -4,6 +4,13 @@
 ```console
 $ pip install pyaudio
 ```
+Incase you come across an error installing pyaudio on windows using pip, try this below:
+
+```console
+$ pip install pipwin
+$ pipwin install pyaudio
+```
+
 
 M1 Mac:
 
