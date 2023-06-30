@@ -61,10 +61,10 @@ def get_transcription_result_url(url):
 def save_transcript(url, title):
     data, error = get_transcription_result_url(url)
     
-    if data:
+    if error is None:
         filename = title + '.txt'
         with open(filename, 'w') as f:
             f.write(data['text'])
         print('Transcript saved')
-    elif error:
+    else:
         print("Error!!!", error)
